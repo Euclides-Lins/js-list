@@ -18,6 +18,15 @@ class HomeController {
       return res.json(null);
     }
   }
+
+  async show(req, res) {
+    try {
+      const user = await User.findByPk(req.params.id);
+      return res.json(user);
+    } catch (e) {
+      return res.json(null);
+    }
+  }
 }
 
 export default new HomeController();
